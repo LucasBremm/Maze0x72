@@ -5,12 +5,15 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
   Rigidbody2D rbody;
+  SpriteRenderer spriteRenderer;
+
   [SerializeField] float speed = 5f;
   Vector2 moveDelta;
   // Start is called before the first frame update
   void Start()
   {
       rbody = GetComponent<Rigidbody2D>();
+      spriteRenderer = GetComponent<SpriteRenderer>();
   }
 
   // Update is called once per frame
@@ -20,13 +23,16 @@ public class PlayerController : MonoBehaviour
     moveDelta.y = Input.GetAxisRaw("Vertical");
 
     if (moveDelta.x < 0) {
-      transform.localScale = new Vector3(-1, 1, 1);
+      // transform.localScale = new Vector3(-1, 1, 1);
+      spriteRenderer.flipX = true;
     } else if (moveDelta.x > 0) {
-      transform.localScale = Vector3.one;
+      spriteRenderer.flipX = false;
+      // transform.localScale = Vector3.one;
     }
   }
 
   void FixedUpdate() {
-    rbody.MovePosition(rbody.position + (moveDelta * speed * Time.fixedDeltaTime));
+    rbody.MovePosition(rbody.position + (moveDelta.normalized * speed * Time.fixedDeltaTime));
+    // rbody.velocity = moveDelta.normalized * speed;
   }
 }
