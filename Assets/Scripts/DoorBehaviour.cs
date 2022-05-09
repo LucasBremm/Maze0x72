@@ -24,6 +24,6 @@ public class DoorBehaviour : MonoBehaviour
   }
 
   private void callRestartScene () {
-      SceneLoader.LoadRestartScene();
+      SceneLoader.LoadWinScene();
   }
 }

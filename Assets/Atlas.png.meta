@@ -29,6 +29,12 @@ TextureImporter:
   - first:
       213: -407774699277236136
     second: Brick_Wall_Top_3
+  - first:
+      213: -5599750456436461424
+    second: Orc_Enemy_01
+  - first:
+      213: -7450669156800766785
+    second: Sword
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -314,6 +320,48 @@ TextureImporter:
       bones: []
       spriteID: 858403d421b475af0800000000000000
       internalID: -407774699277236136
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Orc_Enemy_01
+      rect:
+        serializedVersion: 2
+        x: 34
+        y: 80
+        width: 11
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 090f54de0a0b942b0800000000000000
+      internalID: -5599750456436461424
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Sword
+      rect:
+        serializedVersion: 2
+        x: 163
+        y: 225
+        width: 10
+        height: 21
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fbc5ee190e7e99890800000000000000
+      internalID: -7450669156800766785
       vertices: []
       indices: 
       edges: []

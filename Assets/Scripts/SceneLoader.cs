@@ -8,8 +8,9 @@ public class SceneLoader : MonoBehaviour
   public enum SceneIndex {
     StartMenu = 0,
     Game = 1,
-    Restart = 2,
-    Credits = 3
+    Win = 2,
+    Lose = 3,
+    Credits = 4
   };
 
   public static void LoadScene (SceneIndex index) {
@@ -20,8 +21,12 @@ public class SceneLoader : MonoBehaviour
     LoadScene(SceneIndex.Game);
   }
 
-  public static void LoadRestartScene () {
-    LoadScene(SceneIndex.Restart);
+  public static void LoadWinScene () {
+    LoadScene(SceneIndex.Win);
+  }
+
+  public static void LoadLoseScene () {
+    LoadScene(SceneIndex.Lose);
   }
   
   public static void LoadMenuScene () {
