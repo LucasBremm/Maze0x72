@@ -7,7 +7,7 @@ public class EnemyBehaviour : MonoBehaviour
   [SerializeField] Transform[] patrolPoints;
   [SerializeField] float speed = 5f;
   
-  BlinkBehaviour blinker;
+  BlinkBehaviour blinkBehaviour;
   Rigidbody2D rbody;
   BoxCollider2D boxCollider;
   SpriteRenderer spriteRenderer;
@@ -28,7 +28,7 @@ public class EnemyBehaviour : MonoBehaviour
     boxCollider = GetComponent<BoxCollider2D>();
     spriteRenderer = GetComponent<SpriteRenderer>();
 
-    blinker = GetComponent<BlinkBehaviour>();
+    blinkBehaviour = GetComponent<BlinkBehaviour>();
 
     pointsSize = patrolPoints.Length;
 
@@ -95,13 +95,13 @@ public class EnemyBehaviour : MonoBehaviour
 
   private void OnCollisionEnter2D(Collision2D other) {
     if (other.gameObject.tag == "Player") {
-      SceneLoader.LoadLoseScene();
+      other.gameObject.GetComponent<PlayerHealth>().processHit();
     }
   }
 
   public void GetHit () {
     canMove = false;
-    blinker.Blink(0.125f);
+    blinkBehaviour.Blink(0.125f);
   
     StartCoroutine(Die());
   }
