@@ -93,9 +93,9 @@ public class EnemyBehaviour : MonoBehaviour
     calledChangeIndex = false;
   }
 
-  private void OnCollisionEnter2D(Collision2D other) {
-    if (other.gameObject.tag == "Player") {
-      other.gameObject.GetComponent<PlayerHealth>().processHit();
+  private void OnTriggerEnter2D(Collider2D other) {
+    if (other.tag == "Player") {
+      other.GetComponent<PlayerHealth>().processHit();
     }
   }
 

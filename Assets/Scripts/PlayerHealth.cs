@@ -7,8 +7,8 @@ public class PlayerHealth : MonoBehaviour
     [SerializeField] int health = 3;
     
     BlinkBehaviour blinkBehaviour;
-    BoxCollider2D boxCollider;
     PlayerController controller;
+    Weapon weaponController;
     SpriteRenderer spriteRenderer;
 
     [SerializeField] Image[] hearts;
@@ -16,8 +16,8 @@ public class PlayerHealth : MonoBehaviour
     void Start()
     {
       blinkBehaviour = GetComponent<BlinkBehaviour>();
-      boxCollider = GetComponent<BoxCollider2D>();
       controller = GetComponent<PlayerController>();
+      weaponController = GetComponentInChildren<Weapon>();
       spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
@@ -36,11 +36,12 @@ public class PlayerHealth : MonoBehaviour
       blinkBehaviour.Blink(0.125f);
       health -= 1;
 
-      boxCollider.enabled = false;
       controller.enabled = false;
+      weaponController.enabled = false;
 
       if (health <= 0) {
         spriteRenderer.sortingOrder = -1; // Para que os inimigos "passem por cima"
+        weaponController.GetComponentInChildren<SpriteRenderer>().sortingOrder = -1; // Para que os inimigos "passem por cima"
         StartCoroutine(dieAnimation());
         return;
       }
@@ -52,10 +53,7 @@ public class PlayerHealth : MonoBehaviour
       yield return new WaitForSeconds(0.25f);
 
       controller.enabled = true;
-
-      yield return new WaitForSeconds(0.25f);
-
-      boxCollider.enabled = true;
+      weaponController.enabled = true;
     }
 
     IEnumerator dieAnimation () {
