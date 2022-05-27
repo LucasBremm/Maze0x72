@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class DoorBehaviour : MonoBehaviour
 {
+  public SceneLoader.SceneIndex nextScene = SceneLoader.SceneIndex.Win;
+
   SpriteRenderer spriteRenderer;
   BoxCollider2D boxCollider;
 
@@ -24,6 +26,6 @@ public class DoorBehaviour : MonoBehaviour
   }
 
   private void callRestartScene () {
-      SceneLoader.LoadWinScene();
+      SceneLoader.LoadScene(nextScene);
   }
 }

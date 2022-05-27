@@ -7,10 +7,11 @@ public class SceneLoader : MonoBehaviour
 {
   public enum SceneIndex {
     StartMenu = 0,
-    Game = 1,
-    Win = 2,
-    Lose = 3,
-    Credits = 4
+    Tutorial = 1,
+    Game = 2,
+    Win = 3,
+    Lose = 4,
+    Credits = 5
   };
 
   public static void LoadScene (SceneIndex index) {
@@ -19,6 +20,10 @@ public class SceneLoader : MonoBehaviour
 
   public static void LoadGameScene () {
     LoadScene(SceneIndex.Game);
+  }
+
+  public static void LoadTutorialScene () {
+    LoadScene(SceneIndex.Tutorial);
   }
 
   public static void LoadWinScene () {
